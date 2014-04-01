@@ -1,6 +1,8 @@
 Simple OpenGL Image Library 2
 ==========================
 
+(Cloned from https://bitbucket.org/SpartanJ/soil2)
+
 **Introduction:**
 --------------
 

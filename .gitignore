@@ -1,4 +1,3 @@
-syntax: glob 
 bin/soil2*
 obj/*
 make/*
