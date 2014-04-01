@@ -359,6 +359,7 @@ unsigned int
 	SOIL_load_OGL_texture
 	(
 		const char *filename,
+        int* pwidth, int* pheight, int* pchannels,
 		int force_channels,
 		unsigned int reuse_texture_ID,
 		unsigned int flags
@@ -368,6 +369,11 @@ unsigned int
 	unsigned char* img;
 	int width, height, channels;
 	unsigned int tex_id;
+
+    if (pwidth) *pwidth = -1;
+    if (pheight) *pheight = -1;
+    if (pchannels) *pchannels = -1;
+
 	/*	does the user want direct uploading of the image as a DDS file?	*/
 	if( flags & SOIL_FLAG_DDS_LOAD_DIRECT )
 	{
@@ -424,6 +430,9 @@ unsigned int
 			GL_MAX_TEXTURE_SIZE );
 	/*	and nuke the image data	*/
 	SOIL_free_image_data( img );
+    if (pwidth) *pwidth = width;
+    if (pheight) *pheight = height;
+    if (pchannels) *pchannels = channels;
 	/*	and return the handle, such as it is	*/
 	return tex_id;
 }
